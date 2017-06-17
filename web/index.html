@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Materia Socket.io example</title>
+
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.css">
+    <script src="/socket.io/socket.io.js">
+    </script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        $(function() {
+            var socket = io();
+            $('form').submit(() => {
+                socket.emit('chat message', $('#m').val(), $('#username').val());
+                $('#m').val('');
+                return false;
+            });
+            socket.on('chat message', function(msg, username) {
+                $('#messages').append($('<p>').text(username + ':  ' + msg));
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div style="height:90%; margin:25px;">
+        <h1>Materia Socket.io example !</h1>
+        <div class="ui card " style="height:50%; width:90%; margin:25px; padding:25px;">
+            <div id="messages">
+
+            </div>
+        </div>
+        <div class="ui card" style="width:90%; margin:25px;">
+            <div class="ui left icon input">
+                <input type="text" placeholder="Enter your username here" id="username">
+                <i class="user icon"></i>
+            </div>
+            <form action="">
+                <div style="display:flex; flex-direction:column;">
+                    <input name="message" id="m" style="height:100px;" style="background:lightblue;">
+
+
+                </div>
+                <input class="ui big blue button" type="submit">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

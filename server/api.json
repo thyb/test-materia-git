@@ -1,0 +1,10 @@
+[
+	{
+		"method": "get",
+		"url": "/testPagination",
+		"query": {
+			"entity": "test",
+			"id": "testPagination"
+		}
+	}
+]

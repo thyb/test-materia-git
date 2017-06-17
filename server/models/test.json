@@ -1,0 +1,51 @@
+{
+	"id": "24498bb1-8555-4427-8b1f-57881a6e095a",
+	"fields": [
+		{
+			"name": "id_test",
+			"type": "number",
+			"read": true,
+			"write": false,
+			"primary": true,
+			"unique": true,
+			"required": true,
+			"autoIncrement": true,
+			"component": "input"
+		},
+		{
+			"name": "name",
+			"type": "text",
+			"read": true,
+			"write": true,
+			"component": "input"
+		}
+	],
+	"relations": [],
+	"queries": [
+		{
+			"id": "abc",
+			"type": "findAll",
+			"opts": {
+				"select": [
+					"id_test"
+				],
+				"conditions": [],
+				"include": []
+			}
+		},
+		{
+			"id": "testPagination",
+			"type": "findAll",
+			"opts": {
+				"select": [
+					"id_test",
+					"name"
+				],
+				"conditions": [],
+				"include": [],
+				"limit": "3",
+				"page": "=page"
+			}
+		}
+	]
+}
